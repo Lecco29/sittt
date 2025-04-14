@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Contábil - Escritório Contábil Suko</title>
+    <link rel="icon" type="image/jpeg" href="images/favicon.png.jpeg">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --accent-color: #ffc107;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(13, 110, 253, 0.9), rgba(13, 110, 253, 0.7)), url('images/contabil-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: white;
+            transform: skewY(-3deg);
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .service-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .service-section:nth-child(odd) {
+            background-color: var(--light-color);
+        }
+        
+        .service-icon-large {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            background: rgba(13, 110, 253, 0.1);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .service-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .service-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.8rem;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .service-list li:before {
+            content: "✓";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            border-radius: 15px;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(33, 37, 41, 0.9), rgba(33, 37, 41, 0.9)), url('img/cta-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .btn-custom {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .navbar-custom {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar-brand h1 {
+            font-weight: 700;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .footer-custom {
+            background-color: var(--dark-color);
+            color: white;
+            padding-top: 4rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-custom shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <h1 class="h3 mb-0 text-primary">Escritório Contábil Suko</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#empresa">Empresa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#servicos">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#links">Links</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contato">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-3 fw-bold mb-4" data-aos="fade-down">Área Contábil</h1>
+                    <p class="lead mb-5" data-aos="fade-up">Gestão contábil completa para sua empresa</p>
+                    <div class="d-flex justify-content-center gap-3" data-aos="fade-up" data-aos-delay="200">
+                        <a href="#servicos" class="btn btn-light btn-lg btn-custom">Nossos Serviços</a>
+                        <a href="https://wa.me/5514996177744?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20Área%20Contábil%20do%20Escritório%20Contábil%20Suko." class="btn btn-outline-light btn-lg btn-custom">Fale Conosco</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card feature-card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="h4 mb-3">Gestão Financeira</h3>
+                            <p class="mb-0">Controle completo das finanças da sua empresa com relatórios precisos e análises detalhadas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card feature-card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <h3 class="h4 mb-3">Planejamento Fiscal</h3>
+                            <p class="mb-0">Estratégias tributárias otimizadas para reduzir custos e aumentar a eficiência fiscal.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card feature-card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="h4 mb-3">Departamento Pessoal</h3>
+                            <p class="mb-0">Gestão completa de recursos humanos, folha de pagamento e benefícios para seus colaboradores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <h2 class="section-title" id="servicos" data-aos="fade-up">Nossos Serviços Contábeis</h2>
+        
+        <!-- Departamento Fiscal -->
+        <section class="service-section" data-aos="fade-up">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                        <div class="service-icon-large">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h2 class="h3 mb-3">Departamento Fiscal</h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <ul class="service-list">
+                            <li>SPED - EFD ICMS, EFD Contribuições, NFe, CT-e</li>
+                            <li>Geração de arquivos magnéticos conforme legislação</li>
+                            <li>Antecipação de Substituição Tributária - Entradas Interestaduais e Diferencial de Alíquotas</li>
+                            <li>REDF (Registro Eletrônico de Documento Fiscal) - NF Paulista, Modelos 1 e 2, Cupom Fiscal</li>
+                            <li>Enquadramento da empresa no sistema tributário: Simples Nacional, Lucro Presumido, Lucro Real, Lucro Real Estimado</li>
+                            <li>Apuração dos impostos: Simples, ISS, ICMS, ICMS-ST, PIS, Cofins, IRPJ, CSLL, IPI, etc.</li>
+                            <li>Orientação fiscal pertinente aos impactos para a aplicação correta da legislação</li>
+                            <li>Escrituração de Livros Fiscais: Livro de Entradas, Livro de Saídas, Livro de Registro de Apuração de ICMS, Livro de Registro de Apuração de IPI e serviços prestados e tomados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Departamento Contábil -->
+        <section class="service-section bg-light" data-aos="fade-up">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                        <div class="service-icon-large">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h2 class="h3 mb-3">Departamento Contábil</h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <ul class="service-list">
+                            <li>Escrituração de Livros Contábeis</li>
+                            <li>Organização, classificação e processamento de documentos contábeis em atendimento às Normas Contábeis e Legislação Vigente</li>
+                            <li>Elaboração de balancetes e balanços mensais, trimestrais e anuais com observância aos princípios e Normas Brasileiras de Contabilidade</li>
+                            <li>Demonstrações contábeis: DRE, DFC, DLPA ou DMPL, DVA, Balanço Social e Notas Explicativas</li>
+                            <li>Publicações das Demonstrações Contábeis</li>
+                            <li>Emissão de relatórios gerenciais e índices de liquidez e endividamento</li>
+                            <li>Assessoria e Consulta Contábil</li>
+                            <li>Preparação de documentação e atendimento à Auditorias Contábeis (IFRS)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contabilidade Rural -->
+        <section class="service-section" data-aos="fade-up">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                        <div class="service-icon-large">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <h2 class="h3 mb-3">Contabilidade Rural</h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <ul class="service-list">
+                            <li>Escrituração de Livro de Caixa Rural</li>
+                            <li>CCIR (Certificado de Cadastro de Imóvel Rural)</li>
+                            <li>ITR (Imposto sobre a Propriedade Territorial Rural)</li>
+                            <li>Declaração de vacinação</li>
+                            <li>Contratos Rurais diversos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expediente -->
+        <section class="service-section bg-light" data-aos="fade-up">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                        <div class="service-icon-large">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <h2 class="h3 mb-3">Expediente</h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <ul class="service-list">
+                            <li>Aberturas e encerramentos de empresas</li>
+                            <li>Declaração do IRPF</li>
+                            <li>Declarações Diversas: IRPJ, DCTF, DMED, DIMOB, DIRF e outros</li>
+                            <li>SPED, NE-E, FCONT, E-CNPJ, EFD</li>
+                            <li>Serviços junto aos órgãos: CETESB, IBAMA, INSS, Prefeituras, Vigilância Sanitária, ANP, Siscomex, Ministério do Trabalho, ANVISA, ANTT, Fórum, Junta Comercial</li>
+                            <li>Certidões em geral</li>
+                            <li>Retenção de IRRF</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Departamento Pessoal -->
+        <section class="service-section" data-aos="fade-up">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                        <div class="service-icon-large">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h2 class="h3 mb-3">Departamento Pessoal</h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <ul class="service-list">
+                            <li>Assuntos trabalhistas</li>
+                            <li>Assuntos previdenciários</li>
+                            <li>Regularização de obra de construção civil junto à Receita Federal</li>
+                            <li>E-Social</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section" data-aos="fade-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="display-5 fw-bold mb-4">Precisa de ajuda com sua contabilidade?</h2>
+                        <p class="lead mb-5">Nossa equipe especializada está pronta para auxiliar sua empresa</p>
+                        <a href="https://wa.me/5514996177744?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20Área%20Contábil%20do%20Escritório%20Contábil%20Suko." class="btn btn-primary btn-lg btn-custom">Entre em Contato</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-custom py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="h5 mb-3">Sobre Nós</h4>
+                    <p class="mb-0">Somos uma empresa especializada em serviços contábeis, fiscais e departamento pessoal, comprometida com a excelência e satisfação dos nossos clientes.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="h5 mb-3">Links Rápidos</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Início</a></li>
+                        <li class="mb-2"><a href="index.html#sobre" class="text-light text-decoration-none">Sobre</a></li>
+                        <li class="mb-2"><a href="index.html#servicos" class="text-light text-decoration-none">Serviços</a></li>
+                        <li class="mb-2"><a href="index.html#contato" class="text-light text-decoration-none">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="h5 mb-3">Redes Sociais</h4>
+                    <div class="d-flex gap-3">
+                        <a href="https://wa.me/5514996177744?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20do%20Escritório%20Contábil%20Suko." class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                <p class="mb-0">&copy; 2024 Escritório Contábil Suko. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html> 
