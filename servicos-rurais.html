@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços Rurais - Escritório Contábil Suko</title>
+    <link rel="icon" type="image/jpeg" href="images/favicon.png.jpeg">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --accent-color: #ffc107;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(13, 110, 253, 0.9), rgba(13, 110, 253, 0.7)), url('images/rural-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: white;
+            transform: skewY(-3deg);
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="images/favicon.png.jpeg" alt="Logo" width="40" height="40" class="me-2">
+                    <h1 class="h3 mb-0 text-primary">Escritório Contábil Suko</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#servicos">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contato">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4" data-aos="fade-up">Serviços Rurais</h1>
+                    <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">Assessoria contábil especializada para produtores rurais, garantindo a conformidade fiscal e maximizando seus resultados.</p>
+                    <a href="https://wa.me/5514996177744?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20rurais%20do%20Escritório%20Contábil%20Suko." class="btn btn-light btn-lg btn-custom" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fab fa-whatsapp me-2"></i>Fale com um Especialista
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Nossos Serviços Rurais</h2>
+                    <p class="lead">Oferecemos soluções completas para o produtor rural</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="feature-card card shadow-sm" data-aos="fade-up">
+                        <div class="card-body p-4">
+                            <div class="service-icon-large">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <h3 class="h4 text-center mb-4">Declaração do ITR</h3>
+                            <ul class="service-list">
+                                <li>Elaboração e envio da Declaração do ITR</li>
+                                <li>Cálculo correto do imposto</li>
+                                <li>Preenchimento adequado do DIAT</li>
+                                <li>Documentação completa e organizada</li>
+                                <li>Acompanhamento do processo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="feature-card card shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-body p-4">
+                            <div class="service-icon-large">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h3 class="h4 text-center mb-4">Contabilidade Rural</h3>
+                            <ul class="service-list">
+                                <li>Livro Caixa da Atividade Rural</li>
+                                <li>Controle de custos e despesas</li>
+                                <li>Análise de rentabilidade</li>
+                                <li>Gestão de estoque e patrimônio</li>
+                                <li>Relatórios gerenciais personalizados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="feature-card card shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-body p-4">
+                            <div class="service-icon-large">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3 class="h4 text-center mb-4">Declaração de IR Rural</h3>
+                            <ul class="service-list">
+                                <li>Declaração completa de rendimentos</li>
+                                <li>Apuração de resultados</li>
+                                <li>Planejamento tributário</li>
+                                <li>Orientação fiscal</li>
+                                <li>Acompanhamento de prazos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="feature-card card shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-body p-4">
+                            <div class="service-icon-large">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h3 class="h4 text-center mb-4">Consultoria Rural</h3>
+                            <ul class="service-list">
+                                <li>Análise de viabilidade de projetos</li>
+                                <li>Planejamento sucessório</li>
+                                <li>Orientação para financiamentos</li>
+                                <li>Assessoria em decisões estratégicas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlight-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="h3 mb-4">Por que escolher nossos serviços?</h2>
+                    <p class="lead mb-4">Conte com nossa experiência e conhecimento para cuidar da parte contábil do seu negócio rural, enquanto você se concentra no que faz de melhor: produzir!</p>
+                    <a href="https://wa.me/5514996177744?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20rurais%20do%20Escritório%20Contábil%20Suko." class="btn btn-light btn-lg btn-custom">
+                        <i class="fab fa-whatsapp me-2"></i>Solicite uma Consulta
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4 class="h5 mb-3">Sobre Nós</h4>
+                    <p class="mb-0">Somos uma empresa especializada em serviços contábeis, fiscais e departamento pessoal, comprometida com a excelência e satisfação dos nossos clientes.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4 class="h5 mb-3">Contato</h4>
+                    <p class="mb-1"><i class="fas fa-phone me-2"></i>(14) 3486-1552 / (14) 3486-1485</p>
+                    <p class="mb-1"><i class="fas fa-mobile-alt me-2"></i>(14) 99617-7744</p>
+                    <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>R. Dom Pedro II, 222 - Herculândia, SP</p>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="h5 mb-3">Redes Sociais</h4>
+                    <div class="d-flex gap-3">
+                        <a href="https://wa.me/5514996177744" class="text-light"><i class="fab fa-whatsapp fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Escritório Contábil Suko. Todos os direitos reservados.</p>
+                <p class="mb-0">Desenvolvido por Tucano Tech</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS - Animate On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html> 
