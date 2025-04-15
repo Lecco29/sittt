@@ -101,23 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     counters.forEach(counter => observer.observe(counter));
 
-    // Service cards hover effect
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-10px)';
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
-        });
-    });
-
-    // Add pulse animation to CTA buttons
-    const ctaButtons = document.querySelectorAll('.btn-primary');
-    ctaButtons.forEach(button => {
-        button.classList.add('pulse-button');
-    });
-
     // Parallax effect for sections with background images
     const parallaxSections = document.querySelectorAll('#home, #estrategia, #contato');
     window.addEventListener('scroll', () => {

@@ -154,21 +154,13 @@ header.scrolled {
 }
 
 .service-card {
-    transition: all 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .service-card .card {
     border-radius: 15px;
     overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.service-card .card:hover {
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
 }
 
 .service-icon {
@@ -180,23 +172,11 @@ header.scrolled {
     justify-content: center;
     background: rgba(13, 110, 253, 0.1);
     border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.service-card:hover .service-icon {
-    background: rgba(13, 110, 253, 0.2);
-    transform: scale(1.1);
 }
 
 .service-card .btn-primary {
     padding: 0.5rem 1.5rem;
     border-radius: 25px;
-    transition: all 0.3s ease;
-}
-
-.service-card .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
 }
 
 /* Estratégia Section */
@@ -259,16 +239,15 @@ header.scrolled {
 
 /* Estilo para os cards da seção Links Úteis */
 .hover-card {
-    transition: all 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .hover-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border-color: var(--bs-primary);
+    border-color: var(--primary-color);
 }
 
 .hover-card .card-body {
@@ -276,29 +255,48 @@ header.scrolled {
     z-index: 1;
 }
 
-.hover-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(var(--bs-primary-rgb), 0.05) 0%, rgba(var(--bs-primary-rgb), 0) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.hover-card:hover::before {
-    opacity: 1;
-}
-
 .hover-card .btn-primary {
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
     transition: all 0.3s ease;
 }
 
-.hover-card:hover .btn-primary {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(var(--bs-primary-rgb), 0.3);
+.hover-card .btn-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Estilo para os ícones dos cards de links úteis */
+.hover-card .fa-2x {
+    transition: all 0.3s ease;
+}
+
+.hover-card:hover .fa-2x {
+    transform: scale(1.1);
+    color: var(--primary-color);
+}
+
+/* Estilo para as seções de links úteis */
+#links .section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+#links .section-title:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#links .h4 {
+    font-weight: 600;
+    margin-bottom: 2rem;
 }
 
 /* Counter animation */
@@ -364,4 +362,81 @@ header.scrolled {
     .scroll-down {
         display: none;
     }
+}
+
+/* Divider customizado */
+.divider-custom {
+    width: 100%;
+    max-width: 200px;
+    padding: 0;
+    margin: 1.25rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divider-custom .divider-custom-line {
+    width: 100%;
+    max-width: 5rem;
+    height: 0.25rem;
+    background-color: var(--bs-primary);
+    border-radius: 1rem;
+    border: none;
+}
+
+.divider-custom .divider-custom-icon {
+    color: var(--bs-primary);
+    font-size: 1.5rem;
+    margin: 0 1rem;
+}
+
+/* Feature icons */
+.feature-icon-small {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+}
+
+/* Cards com sombra suave */
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Seção Empresa */
+#empresa .card {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+#empresa .feature-icon-small {
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+}
+
+/* Seção Serviços */
+#servicos .card {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+#servicos .service-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: var(--bs-primary);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+#servicos .card:hover .service-icon {
+    transform: scale(1.1);
 } 
