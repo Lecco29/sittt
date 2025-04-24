@@ -6,14 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
 
-    // Initialize AOS (Animate On Scroll)
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-    });
-
     // Header scroll effect
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
@@ -28,20 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                // Close mobile menu if open
-                const navbarToggler = document.querySelector('.navbar-toggler');
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
-                    navbarToggler.click();
-                }
-                
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
 
@@ -68,51 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Counter animation
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200;
-
-    const animateCounter = (counter) => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const increment = target / speed;
-
-        if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(() => animateCounter(counter), 1);
-        } else {
-            counter.innerText = target;
-        }
-    };
-
-    // Start counter animation when element is in viewport
-    const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, {
-        threshold: 0.5
-    });
-
-    counters.forEach(counter => observer.observe(counter));
-
-    // Parallax effect for sections with background images
-    const parallaxSections = document.querySelectorAll('#home, #estrategia, #contato');
-    window.addEventListener('scroll', () => {
-        parallaxSections.forEach(section => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * 0.5;
-            section.style.backgroundPositionY = `${rate}px`;
-        });
-    });
-
-    // Funções para gerenciamento de cookies
-    window.setCookie = function(name, value, days) {
+    // Cookie management
+    function setCookie(name, value, days) {
         let expires = "";
         if (days) {
             const date = new Date();
@@ -122,10 +60,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
 
-    window.getCookie = function(name) {
+    function getCookie(name) {
         const nameEQ = name + "=";
         const ca = document.cookie.split(';');
-        for(let i = 0; i < ca.length; i++) {
+        for (let i = 0; i < ca.length; i++) {
             let c = ca[i];
             while (c.charAt(0) == ' ') c = c.substring(1, c.length);
             if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
@@ -133,28 +71,19 @@ document.addEventListener('DOMContentLoaded', function() {
         return null;
     }
 
-    window.acceptCookies = function() {
-        window.setCookie('cookieConsent', 'accepted', 365);
-        const banner = document.getElementById('cookieBanner');
-        if (banner) {
-            banner.style.display = 'none';
-        }
+    // Show cookie banner if not accepted
+    if (!getCookie('cookieConsent')) {
+        document.querySelector('.cookie-banner').style.display = 'block';
     }
 
-    window.rejectCookies = function() {
-        window.setCookie('cookieConsent', 'rejected', 365);
-        const banner = document.getElementById('cookieBanner');
-        if (banner) {
-            banner.style.display = 'none';
-        }
-    }
+    // Handle cookie consent
+    document.querySelector('.accept-cookies').addEventListener('click', function() {
+        setCookie('cookieConsent', 'true', 365);
+        document.querySelector('.cookie-banner').style.display = 'none';
+    });
 
-    // Verificar consentimento de cookies ao carregar a página
-    const cookieConsent = window.getCookie('cookieConsent');
-    if (!cookieConsent) {
-        const banner = document.getElementById('cookieBanner');
-        if (banner) {
-            banner.style.display = 'block';
-        }
-    }
+    document.querySelector('.reject-cookies').addEventListener('click', function() {
+        setCookie('cookieConsent', 'false', 365);
+        document.querySelector('.cookie-banner').style.display = 'none';
+    });
 }); 
